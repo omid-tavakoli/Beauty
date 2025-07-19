@@ -1,0 +1,243 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply w-2 bg-neutral-100 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neutral-400 rounded-full;
+  }
+}
+
+@layer base {
+  body {
+    overflow-x: hidden;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  /* استایل برای ورودی نوع range */
+
+  input[type="range" i] {
+    width: 100%;
+    height: 2rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    cursor: pointer;
+    overflow-y: hidden;
+  }
+
+  input[type="range" i]::-webkit-slider-thumb {
+    border-radius: 50%;
+    width: 100%;
+    border-image: linear-gradient(90deg,
+        rgba(236, 236, 236, 1) 50%,
+        theme("colors.pink.primary") 0) 0 1 / calc(50% - 2px / 2) 100vw/0 100vw;
+  }
+
+  /* استایل برای دستگیره اسلایدر */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0.875rem;
+    height: 0.875rem;
+    background: theme("colors.black");
+    cursor: pointer;
+    border-radius: 50%;
+    margin-top: -0.25rem;
+    /* برای قرار دادن دستگیره در وسط نوار */
+  }
+
+  @media screen and (max-width: theme("screens.sm")) {
+    input[type="range"]::-webkit-slider-thumb {
+      display: none;
+    }
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 0.875rem;
+    height: 0.875rem;
+    background: theme("colors.black");
+    cursor: pointer;
+    border-radius: 50%;
+  }
+}
+
+input,
+button {
+  outline: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+}
+
+.phone {
+  position: relative;
+  text-indent: 1ch;
+  white-space: nowrap;
+}
+
+.phone:before {
+  background-color: white;
+  border-right: 1ch solid white;
+  content: "09162593230";
+  display: block;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  text-indent: 0;
+  top: 0;
+  width: 5ch;
+}
+
+@media screen and (min-width: 0\0) and (min-resolution: 72dpi) {
+  .phone:before {
+    width: 5.8ch;
+  }
+}
+
+.instagram-gradient {
+  background: rgb(233, 73, 106);
+  background: linear-gradient(135deg,
+      rgba(233, 73, 106, 1) 0%,
+      rgba(66, 103, 201, 1) 100%);
+}
+
+.video-primary-gradient {
+  background: linear-gradient(52.82deg,
+      rgba(var(--primary-rgb), 0.6) 38.26%,
+      rgba(255, 230, 243, 0.6) 100%);
+}
+
+.pink-gradient {
+  background: var(--primary);
+  background: radial-gradient(circle,
+      rgba(var(--primary-rgb), 0.4) 0%,
+      rgba(235, 16, 128, 0) 100%);
+  background-attachment: fixed;
+}
+
+.white-line-gradient-90 {
+  background: #ffff;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0));
+}
+
+.white-line-gradient-270 {
+  background: #ffff;
+  background: linear-gradient(270deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0));
+}
+
+.video-white-border {
+  border: 6px solid rgba(255, 255, 255, 0.2);
+}
+
+.noise-background {
+  background-image: url("../../public/assets/images/icons/noise.svg");
+}
+
+.customer-opinion-background {
+  background-image: url("../../public/assets/images/icons/Subtract.svg");
+}
+
+@layer components {
+
+  /* Global Styles */
+  .custom-divider {
+    @apply relative block w-full h-px before:content-[''] before:block before:w-full before:h-px before:bg-card-border before:absolute before:rounded-md before:bottom-0 before:right-0;
+  }
+
+  .button {
+    @apply flex items-center justify-center h-10 px-5 rounded-[1.875rem] cursor-pointer text-sm font-semibold border border-transparent;
+  }
+
+  .button-primary {
+    @apply leading-5 bg-pink-primary text-white;
+  }
+
+  .button-secondary {
+    @apply leading-[1.375rem] text-black bg-white border border-card-border;
+  }
+
+  .button-primary-outline {
+    @apply flex items-center justify-center text-pink-primary bg-white h-10 px-4 border border-pink-primary rounded-[1.875rem] cursor-pointer text-sm leading-5 font-semibold;
+  }
+
+  /* Swiper Styles */
+  .disabled-swiper-navigation {
+    @apply opacity-50 pointer-events-none;
+  }
+
+  /* Services Categories Tabs */
+  .services-categories {
+    @apply relative text-sm font-medium sm:font-semibold pt-[0.375rem] pb-3 text-center leading-5 transition-colors duration-[600ms] cursor-pointer after:content-[''] after:block after:w-0 after:h-1 sm:after:h-0.5 after:transition-[width] after:ease-in-out after:duration-[600ms] after:bg-pink-primary after:rounded-md after:absolute after:bottom-[-0.125rem] sm:after:bottom-0 after:right-0 after:z-10
+      before:content-[''] before:block before:w-0 before:h-1 sm:before:h-0.5 before:transition-[width] before:ease-in-out before:duration-[600ms] before:bg-pink-primary before:rounded-md before:absolute before:bottom-[-0.125rem] sm:before:bottom-0 before:left-0 before:z-10;
+  }
+
+  /* Steps Tabs Styles */
+  .step-mobile:last-of-type div::before {
+    display: none;
+  }
+
+  /* Custom Collapse Styles */
+  .collapse-plus.collapse-custom-plus>.collapse-title::after {
+    @apply !content-[""];
+  }
+
+  .collapse-plus.collapse-custom-plus>.collapse-title>span {
+    @apply after:content-[""] after:absolute after:block after:h-px after:w-[0.875rem] after:transition-all after:top-2/4 after:-translate-y-2/4 after:left-2/4 after:-translate-x-2/4 after:border after:border-pink-primary after:pointer-events-none before:content-[""] before:absolute before:block before:h-[0.875rem] before:w-px before:transition-all before:top-2/4 before:-translate-y-2/4 before:left-2/4 before:-translate-x-2/4 before:border before:border-pink-primary before:pointer-events-none;
+  }
+}
+
+.collapse[open].collapse-plus.collapse-custom-plus>.collapse-title>span::before,
+.collapse-open.collapse-plus.collapse-custom-plus>.collapse-title>span::before,
+.collapse-plus.collapse-custom-plus:focus:not(.collapse-close)>.collapse-title>span::before,
+.collapse-plus.collapse-custom-plus:not(.collapse-close)>input[type="checkbox"]:checked~.collapse-title>span::before,
+.collapse-plus.collapse-custom-plus:not(.collapse-close)>input[type="radio"]:checked~.collapse-title>span::before {
+  opacity: 0;
+}
+
+.collapse-title,
+:where(.collapse > input[type="checkbox"]),
+:where(.collapse > input[type="radio"]) {
+  min-height: 50px !important;
+}
+
+.inverted-radius {
+  --r: 23px;
+  --s: 82px;
+  aspect-ratio: 1;
+  border-radius: var(--r);
+  --_m: /calc(2 * var(--r)) calc(2 * var(--r)) radial-gradient(#000 70%,
+      #0000 72%) no-repeat;
+  mask: right calc(var(--s) + var(--r)) top var(--_m),
+    right calc(var(--s) + var(--r)) var(--_m),
+    radial-gradient(var(--s) at 100% 0, #0000 99%, #000 101%) calc(-1 * var(--r)) var(--r) no-repeat,
+    conic-gradient(at calc(100% - var(--s) - 2 * var(--r)) calc(var(--s) + 2 * var(--r)),
+      #0000 25%,
+      #000 0);
+}
