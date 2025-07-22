@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 🖥️ Beauty Salon Booking Website
+This is the public-facing website for the Beauty Salon platform, where customers can explore services, view available time slots, and reserve appointments with specific staff members.
 
-## Getting Started
+---
 
-First, run the development server:
+## 💡 Core Features
+Explore salon services and offerings
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Book appointments with selected staff at available times
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Pay booking deposits online
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+View location using interactive map (Leaflet)
 
-## Learn More
+Mobile-first design with full responsiveness
 
-To learn more about Next.js, take a look at the following resources:
+Countdown timer & alerts for bookings
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+ ## 🔧 Tech Stack
+Framework: Next.js (v14)
 
-## Deploy on Vercel
+Styling: TailwindCSS + DaisyUI
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Validation: Zod
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Calendar & Date Pickers: Modern Calendar Datepicker
+
+Maps: Leaflet with custom markers
+
+Timers: react-timer-hook
+
+---
+
+## 🌐 Multi-panel Architecture
+This platform includes 4 panels integrated into a single ecosystem:
+
+Main Website (Next.js based)
+
+Customer Panel – booking & profile management
+
+Staff Panel – view schedules and client bookings
+
+Owner/Admin Panel – full salon control (built with CRA)
+
+
